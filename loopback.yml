@@ -17,6 +17,7 @@
       nxos_l3_interfaces:
         config:
           - name: "{{item.name}}"
-            ipv4: 
-            - address: "{{item.ip_address}}"
+            ipv4:
+              - address: "{{item.ip_address}}"
+
         state: merged
