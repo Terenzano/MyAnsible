@@ -1,0 +1,16 @@
+---
+- name: 9k interfaces
+  hosts: NXOS
+  connection: local
+  tasks:
+    - name: Run show ip interface brief on remote nexus devices
+      nxos_command:
+        commands: show ip interface brief
+        host: "{{inventory_hostname}}"
+        transport: nxapi
+        use_ssl: yes
+        validate_certs: no
+      register: nxos_data
+
+    - name: Print name to console
+      debug: msg="{{nxos_data}}"
